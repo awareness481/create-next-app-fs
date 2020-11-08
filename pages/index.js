@@ -2,8 +2,8 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import hello from './api/hello';
 
-export default function Home() {
-  console.log(hello());
+export default function Home({hello}) {
+  console.log(hello);
   return (
     <div className={styles.container}>
       <Head>
@@ -64,4 +64,14 @@ export default function Home() {
       </footer>
     </div>
   )
+}
+
+export async function getStaticProps() {
+  const request = await hello();
+
+  return {
+    props: {
+      hello: request
+    }
+  }
 }
