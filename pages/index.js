@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import hello from './api/hello';
 
 export default function Home() {
+  console.log(hello());
   return (
     <div className={styles.container}>
       <Head>

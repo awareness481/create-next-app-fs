@@ -1,6 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import fs from 'fs';
 
 export default (req, res) => {
-  res.statusCode = 200
-  res.json({ name: 'John Doe' })
+  const readme = fs.readFileSync("package.json", "utf8");
+  return JSON.parse(readme);
 }
